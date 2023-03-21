@@ -1,5 +1,6 @@
 const express = require('express')
 const puppeteer = require('puppeteer')
+require("dotenv").config()
 const app = express()
 
 let page = puppeteer.Page
@@ -26,7 +27,16 @@ app.get('/login/:username/:password', async(req, res) => {
     const password = req.params.password;
 
     try {
-        browser = await puppeteer.launch({headless: false})
+        browser = await puppeteer.launch({
+            args: [
+                "--disable-setuuid-sandbox",
+                "--no-sandbox",
+                "--single-process",
+                "--no-zygote",
+            ],
+            executablePath : process.env.NODE_ENV === "production" ? 
+                process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
+        })
         page = await browser.newPage()
         await page.goto("https://powerschool.hermitage.k12.pa.us")
         
