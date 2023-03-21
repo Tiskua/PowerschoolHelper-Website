@@ -26,7 +26,7 @@ app.get('/login/:username/:password', async(req, res) => {
     const password = req.params.password;
 
     try {
-        browser = await puppeteer.launch({headless: true})
+        browser = await puppeteer.launch({headless: false})
         page = await browser.newPage()
         await page.goto("https://powerschool.hermitage.k12.pa.us")
         
@@ -155,4 +155,4 @@ async function getStudentName() {
     return firstName + " " + lastName 
 }
 
-app.listen(process.env.PORT || 3000, () => console.log(`Listening on port 3000`))
+app.listen(3000, () => console.log(`Listening on port 3000`))
