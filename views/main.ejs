@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+    <link rel="stylesheet" href="/stylesheets/styles2.css">
+</head>
+<body>
+    <div class="student-name">Hello, <%= studentName %></div>
+    <ul class="periods-list">
+        <li><a href="/student-info/1">Quarter 1</a></li>
+        <li><a href="/student-info/2">Quarter 2</a></li>
+        <li><a href="/student-info/3">Semester1</a></li>
+        <li><a href="/student-info/4">Quarter 3</a></li>
+        <li><a href="/student-info/5">Quarter 4</a></li>
+        <li><a href="/student-info/6">Semester 2</a></li>
+        <li><a href="/student-info/7">Final 1</a></li>
+        <li><a href="/student-info/8">Year 1</a></li>
+      </ul>
+    <div class="classes-list">
+        <% data.forEach(async function(cl) { %>
+            <% if (cl.classGrade === "Not available") {return} %>
+            <div class="class-container"><a href="class-info/<%=cl.className%>/<%=quarter%>/<%=cl.classTeacher%>/<%=cl.classGrade%>/">
+                <div class="class-name"><%= cl.className.replace("__" , "/") %></div>
+                <div class="class-data">
+                    <div class="info-title">Info:</div>
+                    <div class="class-teacher class-info">Teacher: <%= cl.classTeacher%></div>
+                    <div class="class-grade class-info">Grade: <%=cl.classGrade%></div>
+                    <div class="class-grade class-info">Weighted Grade: <%=cl.classWeightedGrade%></div>
+                </a></div>
+            </div>
+          <% }); %>
+    </div>
+    <script>
+        const buttons = document.querySelector('.periods-list');
+        const q = '<%-quarter%>'
+        buttons.children[q-1].classList.toggle("selected");
+    </script>
+</body>
+</html>

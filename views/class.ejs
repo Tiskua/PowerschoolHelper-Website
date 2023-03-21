@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+    <link href= "/stylesheets/styles3.css" rel="stylesheet" type="text/css"/>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="class-details">
+        <h1>Class Info</h1>
+        <ul class="class-info">
+          <li><%=details.name%></li>
+          <li><%=details.teacher%></li>
+          <li><%=details.quarter%></li>
+          <li><%=details.grade%></li>
+        </ul>
+      </div>
+    <div class="class-assignments">
+        <h1>Assignments</h1>
+        <% assignments.forEach(function(a) { %>
+        <div class="assignment-container expanded">
+            <div class="general-info">
+                <div class="assignment-name"><%=a.name%></div>
+                <div class="assignment-score"><%=a.score%></div>
+                <div class="assignment-percentage"><%=a.percent%>%</div>
+                <ion-button><ion-icon name="caret-down-outline" class="expand"></ion-icon></ion-button>
+            </div>
+            <div class="additional-info">
+                <div class="label flags"> Flags:
+                    <% a.flags.forEach(function(flag) { %>
+                        <div class="<%=flag%>"><%=flag%></div>
+                    <% }); %>
+                </div>
+                <div class="label">Category
+                    <div><%=a.category%></div>
+                </div>
+                <div class="label">Date:
+                    <div><%=a.date%></div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+          
+    </div>
+    <div class="key-section">
+        <h1>Key:</h1>
+        <ul class="key-list">
+          <li class="collected">Collected</li>
+          <li class="late">Late</li>
+          <li class="missing">Missing</li>
+          <li class="exempt">Exempt</li>
+          <li class="absent">Absent</li>
+          <li class="incomplete">Incomplete</li>
+          <li class="excluded">Excluded</li>
+        </ul>
+    </div>
+    <script>
+        const coll = document.querySelectorAll(".expand");
+        const info = document.querySelectorAll(".additional-info");
+
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                info[i].classList.toggle("active");
+                coll[i].classList.toggle("active");
+            });
+        }
+    </script>
+    
+</body>
+</html>

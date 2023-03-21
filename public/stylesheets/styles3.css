@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  display: border-box;
+}
+body {
+  background-color: blue;
+}
+
+.class-details {
+  margin-top: 1rem;
+}
+
+h1 {
+  padding: 0.2rem 0rem 1rem 0.3rem ;
+  color: white;
+  font-weight: bold;
+  background-color: navy;
+  border-radius: 5px;
+  margin: 0 0.3rem;
+}
+
+.class-info {
+  color: white;
+  list-style-type: none;
+  padding: 2rem 0.5rem 2.5rem 0;
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.class-info li {
+  display: inline;
+  padding: 1.3rem 2rem;
+  background-color: navy;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+li:hover {
+  background-color: darkBlue;
+}
+.class-assignments {
+  padding-bottom: 20vh;
+}
+
+.assignment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0.7rem 0.3rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.general-info {
+  display: flex;
+  flex-direction: row;
+  background-color: darkBlue;
+  margin: 0.15rem 0.3rem;
+  padding: 0.6rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.assignment-name {
+  width: 50%;
+  padding: 0.8rem 0.5rem;
+  border: 3px solid black;
+}
+
+.assignment-score {
+  width: 25%;
+  padding: 0.8rem 0.5rem;
+  border: 3px solid black;
+}
+
+.assignment-percentage {
+  width: 20%;
+  padding: 0.8rem 0.5rem;
+  border: 3px solid black;
+}
+
+
+.additional-info {
+  background-color: navy;
+  text-align: left;
+  border-radius: 10px;
+  height: 0;
+  overflow: hidden;
+  transition: all .3s;
+  width: 95%;
+  transform: translateX(2.5%);
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+  
+}
+
+.label {
+  display:flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.flags {
+  padding: 0.3rem;
+}
+
+.additional-info.active {
+  height: 100px;
+}
+
+.expand {
+  cursor: pointer;
+  color: gray;
+  margin-left: 5px;
+  border-radius: 2px;
+  transform: translateY(100%) rotate(-90deg);
+  transition: transform .3s;
+}
+
+.expand.active {
+  transform: translate(0%, 100%) rotate(0deg);
+}
+
+.key-list {
+  list-style-type: none;
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.key-list li {
+  display: inline;
+  padding: 1rem 1.6rem;
+  background-color: navy;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.key-list li:hover {
+  background-color: darkBlue;
+}
+
+.collected {color: limegreen;}
+.late {color: red;}
+.missing {color: orange;}
+.exempt {color: purple;}
+.absent {color: green;}
+.incomplete {color: lightBlue;}
+.excluded {color: darkOrange;}
+

@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+  
+body {
+background-color: navy;
+}
+  
+.student-name {
+    font-weight: bold;
+    font-size: 4em;
+    color: white;
+    margin: 0.5em 0.2em;
+}
+  
+.periods-list {
+    background-color: blue;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+    gap: 0.5rem;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-weight: bold;
+    margin: 2em 0.5em;
+}
+  
+.periods-list li.selected {
+    background-color: navy;
+}
+  
+.periods-list li {
+    padding: 0.75rem;
+    border-radius: 5px;
+}
+
+.periods-list li a {
+    color: white;
+    text-decoration: none;
+}
+  
+  
+.classes-list {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    margin: 0.75rem;
+}
+  
+.class-container {
+    background-color: blue;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.class-container a {
+    text-decoration: none;
+}
+  
+.class-name {
+    color: white;
+    font-size: 2.6em;
+    font-weight: bold;
+}
+  
+  
+.class-info {
+    color: white;
+    font-size: 1.5em;
+    padding: 2px 0;
+}
+  
+.info-title {
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+}
