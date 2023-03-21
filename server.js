@@ -46,9 +46,15 @@ app.get('/login/:username/:password', async(req, res) => {
 })
 
 app.get('/student-info/:quarter', async(req, res) => {
-    const name = await getStudentName()
-    const classes = await getClasses(Number(req.params.quarter))
-    res.render('main', {studentName: name, data: classes, quarter: req.params.quarter})
+    try {
+        const name = await getStudentName()
+        const classes = await getClasses(Number(req.params.quarter))
+        res.render('main', {studentName: name, data: classes, quarter: req.params.quarter})
+    } catch(e) {
+        console.log(e)
+        res.send(`SOMETHING WENT WRONG WITH PUPPETEER ${e}`)
+    }
+    
 })
 
 app.get('/student-info/class-info/:classname/:quarter/:teacher/:grade/', async(req, res)=> {
@@ -155,4 +161,4 @@ async function getStudentName() {
     return firstName + " " + lastName 
 }
 
-app.listen(3000, () => console.log(`Listening on port 3000`))
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on port 3000`))
