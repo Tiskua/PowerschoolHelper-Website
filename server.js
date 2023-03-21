@@ -4,7 +4,7 @@ const app = express()
 
 let page = puppeteer.Page
 let browser = puppeteer.Browser
-
+const PORT = process.env.PORT || 4000
 let hrefs = []
 
 app.use(express.static('public'));
@@ -41,6 +41,7 @@ app.get('/login/:username/:password', async(req, res) => {
         res.redirect('/student-info/1')
 
     } catch (err) {
+        console.log(`ERROR: ${e}`)
         return res.send(err)
     }
 })
@@ -161,4 +162,4 @@ async function getStudentName() {
     return firstName + " " + lastName 
 }
 
-app.listen(process.env.PORT || 3000, () => console.log(`Listening on port 3000`))
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
